@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slideshow</title>
+<style>
+    .slideshow {
+        overflow: hidden;
+        width: 300px;
+        height: 200px;
+        border: 1px solid #ccc;
+        position: relative;
+        display: flex;
+    }
+
+    .slide {
+        flex: 0 0 calc(100% / 3);
+        height: 100%;
+        position: relative;
+        transition: transform 0.5s ease-in-out; /* Transition cho slide */
+    }
+
+    .slide:nth-child(1) {
+        background-color: #f0f0f0;
+    }
+
+    .slide:nth-child(2) {
+        background-color: #e0e0e0;
+    }
+
+    .slide:nth-child(3) {
+        background-color: #d0d0d0;
+    }
+    .slide:nth-child(4) {
+        background-color: #5b55b3;
+    }
+
+    .slide:nth-child(5) {
+        background-color: #86c576;
+    }
+
+    .slide:nth-child(6) {
+        background-color: #7a2323;
+    }
+
+    button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        cursor: pointer;
+    }
+
+    #prevBtn {
+        left: 0;
+    }
+
+    #nextBtn {
+        right: 0;
+    }
+</style>
+</head>
+<body>
+
+<div class="slideshow">
+    <div class="slide" style="--index: 0;">Slide 1</div>
+    <div class="slide" style="--index: 1;">Slide 2</div>
+    <div class="slide" style="--index: 2;">Slide 3</div>
+    <div class="slide" style="--index: 3;">Slide 4</div>
+    <div class="slide" style="--index: 4;">Slide 5</div>
+    <div class="slide" style="--index: 5;">Slide 6</div>
+</div>
+<button id="prevBtn">Previous</button>
+<button id="nextBtn">Next</button>
+
+<script src="./assets/js/main.js">
+
+</script>
+
+</body>
+</html>

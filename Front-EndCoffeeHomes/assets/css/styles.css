@@ -1,0 +1,220 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* =======Common======= */
+
+.main-content {
+    width: 1130px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+.roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+.roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 14px;
+}
+  
+.roboto-black {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+ 
+.row {
+    display: flex;
+}
+
+.container {
+    /* height: 5000px; */
+    /* background-color: rgb(131, 130, 130); */
+    /* overflow-x: scroll; */
+}
+
+  
+/* =======Common======= */
+
+.header {
+    background: rgb(28, 28, 28);
+    position: sticky;
+}
+
+.header .body {
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a{
+    color: #FFF;
+    font-size: 25px!important;
+    font-family: 'Pacifico'!important;
+    line-height: 37.5px!important;
+    text-decoration: none;
+}
+
+.menu_nav {
+    display: flex;
+    list-style-type: none;
+}
+
+.menu_nav li {
+    padding: 8px 16px;
+}
+
+.menu_nav li a{
+    text-decoration: none;
+    color: #FFF;
+}
+
+.big-banner {
+    width: 100vw;
+    max-width: 100%;
+    display: block;
+}
+
+
+.bot-banner { 
+    height: 495px;
+    background-color: #EFDEC9;
+    display: flex;
+    align-items: center;
+}
+
+.bot-banner .body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bot-banner p {
+    width: 400px;
+}
+
+.bot-banner img {
+    width: 550px;
+}
+
+.sell-product {
+    margin-top: 35px;
+}
+
+.sell-product .body{
+    position: relative;
+}
+
+.sell-product .title {
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sell-product .btns {
+    position: absolute;
+    top: 44%;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    transition: 0.5s;
+}
+
+.sell-product .btn-right {
+    position: absolute;
+    right: 20px;
+}
+
+.sell-product .btn-left,
+.sell-product .btn-right {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    background-color: rgba(50, 51, 51, 0.1);
+    font-size: 40px;
+}
+
+.sell-product .btn-left:hover,
+.sell-product .btn-right:hover {
+    cursor: pointer;
+    color: #FFF;
+    background-color: rgba(50, 51, 51, 0.5);
+
+}
+
+.sale-product .img {
+    width: 255px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.sale-product .list-product{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    /* transition: 0.5s; */
+}
+
+.sale-product .name-product {
+    text-align: center;
+    font-size: 18px;
+    padding: 15px 0;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+}
+
+.name-product::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    bottom: 0;
+    background-color: black;
+}
+
+.title {
+    position: relative;
+    margin-bottom: 28px;
+}
+
+.title::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -14px;
+    background-color: black;
+}
+
+.desProduct {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.button-buy {
+    background-color: #23170E;
+    color: #FFF;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+    height: 40px;
+    padding: 0 10px;
+    line-height: 40px;
+}
