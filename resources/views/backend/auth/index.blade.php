@@ -19,6 +19,10 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+  {{-- toastr --}}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -68,14 +72,39 @@
 <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- iCheck -->
 <script src="../../plugins/iCheck/icheck.min.js"></script>
+
+{{-- toastr --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script>
   $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' /* optional */
+      $('input').iCheck({
+        checkboxClass: 'icheckbox_square-blue',
+        radioClass: 'iradio_square-blue',
+        increaseArea: '20%' /* optional */
     });
   });
 </script>
+
+@if(Session::has('success'))
+  <script>
+      toastr.options = {
+        "progressBar" : true,
+        "closeButton" : true,
+      }
+      toastr.success("{{ Session::get('success')}}", 'Success!', {timeOut:12000});
+  </script>
+@endif
+
+@if(Session::has('error'))
+  <script>
+      toastr.options = {
+        "progressBar" : true,
+        "closeButton" : true,
+      }
+      toastr.error("{{ Session::get('error')}}", 'Error!', {timeOut:12000});
+  </script>
+@endif
+
 </body>
 </html>

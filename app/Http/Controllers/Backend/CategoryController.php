@@ -13,7 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('backend.categories.index');
+        $categories = Category::all();
+        return view('backend.categories.index', compact('categories'));
     }
 
     /**
@@ -21,6 +22,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
+        
         return view('backend.categories.create');
     }
 
@@ -29,7 +31,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category();
+
+        $category->name = $request->input('name');
+        $category->description = $request->input('description');
+
+        $category->save();
+        
+        return redirect()->route('category.index')->with('message', 'Test thong bao');
     }
 
     /**
@@ -45,7 +54,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('backend.categories.edit', compact('category'));
     }
 
     /**
@@ -53,7 +62,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category->name = $request->input('name');
+        $category->description = $request->input('description');
+
+        $category->save();
+
+        return redirect()->route('category.index')->with('success', 'Sửa danh mục thành công');
+
     }
 
     /**

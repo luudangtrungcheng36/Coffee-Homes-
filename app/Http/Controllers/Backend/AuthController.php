@@ -16,13 +16,15 @@ class AuthController extends Controller
     {
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            // return redirect()->intended('/');
-            // echo 1;die();
-            return redirect()->route('dashboard.index');
+            $user = Auth::user();
+            if($user->role === 1)
+                return redirect()->route('dashboard.index')->with('success', 'Đăng nhập thành công ');
+            else {
+                Auth::logout();
+                return back()->with('error', 'Tài khoản này không được phép truy cập ');
+            }
         }else {
-            echo 2;
+            return back()->with('error', 'Email hoặc mật khẩu không đúng ');
         }
-        // return back()->withErrors(['email' => 'Invalid credentials']);
     }
 }

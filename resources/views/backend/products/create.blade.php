@@ -24,18 +24,18 @@
             <input type="number" id="price" name="price" required>
         </div>
         <div class="form-group">
-            <label for="salePrice">Giá Khuyến Mãi:</label>
-            <input type="number" id="salePrice" name="salePrice">
+            <label for="sale_price">Giá Khuyến Mãi:</label>
+            <input type="number" id="sale_price" name="sale_price">
         </div>
         <div class="form-group hot-Product">
-            <label for="hotProduct" class="checkbox-label">Sản Phẩm Hot:</label>
-            <input type="checkbox" id="hotProduct" name="hotProduct">
+            <label for="hot_product" class="checkbox-label">Sản Phẩm Hot:</label>
+            <input type="checkbox" id="hot_product" name="hot_product">
         </div>
         <div class="form-group">
             <label for="status">Trạng Thái Sản Phẩm:</label>
             <select id="status" name="status">
-                <option value="available">Có Sẵn</option>
-                <option value="outOfStock">Hết Hàng</option>
+                <option value="0">Có Sẵn</option>
+                <option value="1">Hết Hàng</option>
             </select>
         </div>
         <div class="form-group">

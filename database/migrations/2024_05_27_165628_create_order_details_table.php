@@ -15,11 +15,13 @@ return new class extends Migration
             $table->increments('id');
             $table->unsignedInteger('order_id');
             $table->unsignedInteger('product_id');
-            $table->decimal('price', 10, 3);
-            $table->decimal('total_money', 10, 3);
+            $table->decimal('price');
+            // $table->decimal('total_money', 10, 3);
             $table->integer('quantity');
             $table->timestamps();
 
+
+            // $table->primary(['order_id', 'product_id']);
             $table->foreign('order_id')->references('id')->on('orders');
             $table->foreign('product_id')->references('id')->on('products');
         });

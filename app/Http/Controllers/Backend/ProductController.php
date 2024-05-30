@@ -34,24 +34,28 @@ class ProductController extends Controller
     {
         $validation = $request->validate([
             'name' => 'required',
-            'price' => 'required | numeric', 
+            'price' => 'required', 
         ]); 
 
         $product = new Product();
 
         $product->name = $request->name;
         $product->price = $request->price;
+        $product->sale_price = $request->sale_price; 
         $product->category_id = $request->category;
-
+        $product->hot_product = $request->has('hot_product') ? 1 : 0;
+        $product->status = $request->status;
+        $product->description = $request->description;
         if($request->image) {
             $image = $request->image->hashName();
             $request->image->move(public_path('uploads/products'), $image);
+            $product->image = $image;
         }
         
 
         $product->save();
 
-        return redirect()->route('product.index')->with('success', 'Product added successfully!');
+        return redirect()->route('product.index')->with('message', 'Product added successfully!');
 
     }
 
@@ -78,7 +82,33 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $request->validate([
+            'name' => 'required|string',
+            'category' => 'required|exists:categories,id', // Make sure category exists in categories table
+            'price' => 'required|numeric',
+            'sale_price' => 'nullable|numeric',
+            // 'hot_product' => 'nullable|boolean',
+            'status' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Max size 2MB for image
+            'description' => 'nullable|string',
+        ]);
+
+        $product->name = $request->input('name');
+        $product->category_id = $request->input('category');
+        $product->price = $request->input('price');
+        $product->sale_price = $request->input('sale_price');
+        $product->hot_product = $request->has('hot_product') ? 1 : 0;
+        $product->status = $request->input('status');
+        $product->description = $request->input('description');
+
+        if($request->image) {
+            $image = $request->image->hashName();
+            $request->image->move(public_path('uploads/products'), $image);
+            $product->image = $image;
+        }
+
+        $product->save();
+        return redirect()->route('product.index')->with('success', 'Cập nhập sản phẩm thành công');
     }
 
     /**
@@ -86,7 +116,9 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        $product->carts()->delete();
+
         $product->delete();
-        return redirect(route('product.index'));
+        return redirect()->route('product.index')->with('message', 'xoa successfully!');
     }
 }

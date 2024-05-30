@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('avatar')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->tinyInteger('role')->default(0); // 0 - khách hàng, 1 - admin, 2 - khách hàng bị khóa.
             $table->rememberToken();
             $table->timestamps();
         });

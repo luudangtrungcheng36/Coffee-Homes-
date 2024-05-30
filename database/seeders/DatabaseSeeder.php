@@ -25,7 +25,9 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'address' => 'hanoi',
-            'password' => Hash::make('123456'),
+            'phonenumber' => '098818813',
+            'password' => Hash::make('1'),
+            'role' => 1,
         ];
 
         // Sử dụng Eloquent để tạo bản ghi

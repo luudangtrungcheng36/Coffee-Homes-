@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('account_id');
-            $table->integer('total_quantity');
-            $table->string('order_status')->default('init');
-            $table->decimal('total_price', 10, 3);
+            $table->string('name');
+            $table->string('email');
+            $table->string('address');
+            $table->string('phonenumber');
+            $table->tinyInteger('status')->default(0);
+            $table->string('token')->nullable();
             $table->timestamps();
 
             $table->foreign('account_id')->references('id')->on('accounts');
